@@ -1,0 +1,6 @@
+<% @quests.each do |quest| %>
+  <%= quest.description %>
+  <% quest.places.each do |place| %>
+    <%= place.name %>
+  <% end %>
+<% end %>
