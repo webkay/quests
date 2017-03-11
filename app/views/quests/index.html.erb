@@ -1,6 +1,12 @@
+<h2>Quests</h2>
 <% @quests.each do |quest| %>
+  <hr>
+  <h4>Description:</h4>
   <%= quest.description %>
+  <h4>Places:</h4>
   <% quest.places.each do |place| %>
-    <%= place.name %>
+    <%= link_to place.name, place %><br>
   <% end %>
+  <br>
 <% end %>
+<hr>

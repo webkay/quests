@@ -1,1 +1,5 @@
-<%= @place.name %>
+<h4>Name: <%= @place.name %></h4>
+<h4>Yelp URL:</h4>
+<p><%= @place.yelp_url || 'please add' %></p>
+<h4>Address:</h4>
+<p><%= @place.address || 'please add' %></p>
