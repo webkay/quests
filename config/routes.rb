@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     post 'assignment', on: :member
   end
   resources :users, only: [:new, :create, :show]
+  resource :session
 end

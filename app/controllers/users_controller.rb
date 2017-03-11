@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:new, :create, :show]
+  before_action :require_login, except: [:new, :create]
 
   def new
     @user = User.new
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(1)
+    @user = current_user
   end
 
   def allowed_params

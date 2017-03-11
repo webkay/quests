@@ -5,7 +5,7 @@ class QuestsController < ApplicationController
 
   def assignment
     @quest = Quest.find(params[:id])
-    @user = User.find(1)
+    @user = current_user
     @quest.users.push(@user)
     redirect_to @user
   end
