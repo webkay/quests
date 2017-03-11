@@ -3,6 +3,8 @@
   <hr>
   <h4>Description:</h4>
   <%= quest.description %>
+  <%= button_to "Take", assignment_quest_path(quest) %>
+
   <h4>Places:</h4>
   <% quest.places.each do |place| %>
     <%= link_to place.name, place %><br>

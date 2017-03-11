@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to root_url unless current_user
+    session[:redirect_to_url] = request.url
+    redirect_to new_session_url unless current_user
   end
 end
