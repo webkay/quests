@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     session[:redirect_to_url] = request.url
     redirect_to new_session_url unless current_user
   end
+
+  def require_logout
+    redirect_to root_url unless current_user.nil?
+  end
 end
