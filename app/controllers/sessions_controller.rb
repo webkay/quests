@@ -1,12 +1,14 @@
 class SessionsController < ApplicationController
+  before_action :require_logout, only: [:new, :create]
+
   def new
   end
 
   def create
-    user = User.where(name: session_params[:name]).first
+    user = User.find_by session_params.extract!(:name)
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to session.fetch :redirect_to_url, root_url
+      redirect_to session.fetch(:redirect_to_url, root_url)
     else
       render 'new'
     end
@@ -15,6 +17,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.permit(:name, :password)
+    params.require(:session).permit(:name, :password)
   end
 end
