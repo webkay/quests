@@ -7,4 +7,8 @@ class Quest < ApplicationRecord
   def add_user(user)
     users << user
   end
+
+  def taken_by?(user)
+    user.quests.include? self
+  end
 end
