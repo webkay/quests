@@ -8,3 +8,6 @@
 places = Place.create([{name: 'Space E. Um Cafe', yelp_url: 'https://www.yelp.com/biz/space-e-um-cafe-los-angeles-2'}, {name: 'Kleverdog'}])
 quest = Quest.create(description: "pick up mails at Kleverdog and have coffee at Space Eum Cafe")
 quest.places.push places.first(2)
+
+q = Quest.create(description: "work for a day at Kleverdog")
+q.places << Place.find_by(name: 'Kleverdog')
