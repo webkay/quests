@@ -1,8 +1,8 @@
 class Quest < ApplicationRecord
   has_many :adventures
-  has_many :places, through: :adventures
-  has_many :assignments
-  has_many :users, through: :assignments
+  has_many :places, through: :adventures # quest.places
+
+  # doesn't need quest.users (yet)
 
   def add_user(user)
     users << user
