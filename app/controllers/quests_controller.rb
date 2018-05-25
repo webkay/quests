@@ -3,6 +3,10 @@ class QuestsController < ApplicationController
     @quests = Quest.all
   end
 
+  def show
+    @quest = Quest.find(params[:id])
+  end
+
   def assign
     @quest = Quest.find(params[:id])
     @assignment = @quest.assignments.build user: current_user
