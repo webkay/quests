@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'quests#index'
   resources :places, only: [:show]
-  resources :quests, only: [:index] do
+  resources :quests, only: [:index, :show] do
     member do
       post 'assign'
       post 'unassign'
